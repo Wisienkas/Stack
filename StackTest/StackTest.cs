@@ -82,5 +82,82 @@ namespace Stack
                 Assert.AreEqual(i, stack.Pop());
             }
         }
+
+        [TestMethod]
+        public void TestReverseString()
+        {
+            // Setup
+            string s = "Hello World!";
+            // Operate
+            Console.WriteLine(s);
+            string reverse = StackUtil.ReverseString(s);
+            Console.WriteLine(reverse);
+            // Validate
+            Assert.AreEqual("!dlroW olleH", reverse);
+        }
+
+        [TestMethod]
+        public void TestIsPalindrome()
+        {
+            // Setup
+            string palindrome = "HelloolleH";
+            // Operate
+            bool result = StackUtil.IsPalindrome(palindrome);
+            // Validate
+            Assert.AreEqual(true, result);
+        }
+
+        /// <summary>
+        /// A Palindrome is according to wikipedia allowed to ignore the whitespace and other common symbols
+        /// </summary>
+        [TestMethod]
+        public void TestIsPalinDromeWithSpace()
+        {
+            // Setup
+            string palindrome = "Helloo ll eH";
+            // Operate
+            bool result = StackUtil.IsPalindrome(palindrome);
+            // Validate
+            Assert.AreEqual(true, result);
+        }
+
+        /// <summary>
+        /// A Palindrome is according to wikipedia allowed to ignore the whitespace and other common symbols
+        /// </summary>
+        [TestMethod]
+        public void TestIsPalinDromeWithPunction()
+        {
+            // Setup
+            string palindrome = "Hellooll.eH";
+            // Operate
+            bool result = StackUtil.IsPalindrome(palindrome);
+            // Validate
+            Assert.AreEqual(true, result);
+        }
+
+        /// <summary>
+        /// A Palindrome is according to wikipedia allowed to ignore the whitespace and other common symbols
+        /// </summary>
+        [TestMethod]
+        public void TestIsPalinDromeWithComma()
+        {
+            // Setup
+            string palindrome = "Helloo,lleH";
+            // Operate
+            bool result = StackUtil.IsPalindrome(palindrome);
+            // Validate
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestIsNotPalinDrome()
+        {
+            // Setup
+            string palindrome = "Hel2lolleH";
+            // Operate
+            bool result = StackUtil.IsPalindrome(palindrome);
+            // Validate
+            Assert.AreEqual(false, result);
+        }
     }
 }
